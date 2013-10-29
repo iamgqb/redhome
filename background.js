@@ -52,7 +52,7 @@ function getJSON(){
 
 function goToInbox(){
     chrome.tabs.query({url: getNoticURL()}, function(tabs){
-        update();
+        chrome.browserAction.setBadgeText({text: ''});
         // tab catch OR create
         if ( tabs.length === 0 ) {
             chrome.tabs.create({url: getNoticURL()});
