@@ -3,7 +3,7 @@
 **
 **  Author : gb_2312
 **
-**  Date : 2013-10-29
+**  Date : 2013-10-30
 */
 
 
@@ -52,7 +52,7 @@ function getJSON(){
 
 function goToInbox(){
     chrome.tabs.query({url: getNoticURL()}, function(tabs){
-        chrome.browserAction.setBadgeText({text: ''});
+        
         // tab catch OR create
         if ( tabs.length === 0 ) {
             chrome.tabs.create({url: getNoticURL()});
@@ -80,7 +80,7 @@ function onInit(){
     // Timer
     chrome.alarms.create('update', {periodInMinutes: pollInterval});
     chrome.alarms.onAlarm.addListener(onAlarm);
-
+    chrome.webNavigation.onCompleted.addListener(update,{url: [{urlEquals: getNoticURL()}]});
     chrome.browserAction.onClicked.addListener(goToInbox);
 }
 

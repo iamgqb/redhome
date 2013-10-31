@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "redhome notice checker",
-    "version": "1.0",
+    "version": "1.1",
     "description": "查询家园论坛是否有未读信息",
     "author": "gb_2312",
 
@@ -13,7 +13,8 @@
     "permissions": [
         "http://bbs.redhome.cc/*",
         "alarms",
-        "tabs"
+        "tabs",
+        "webNavigation"
     ],
     
     "browser_action": {
